@@ -1,0 +1,64 @@
+@import './_colors.scss';
+
+//height
+$big-circle-height: 90vh;
+$small-circle-height: 5vh;
+
+//top-left
+$small-circle-top: calc(-#{$small-circle-height / 2});
+$small-circle-left: calc(50% - (#{$small-circle-height} / 2));
+
+#BigCircle {
+  position: relative;
+  height: $big-circle-height;
+  width: $big-circle-height;
+  background-color: $circle-color;
+  border-radius: 50%;
+}
+
+#SmallCircle {
+  position: absolute;
+  height: $small-circle-height;
+  width: $small-circle-height;
+  background-color: $circle-small-color;
+  border-radius: 50%;
+  left: $small-circle-left;
+  top: $small-circle-top;
+}
+
+#Name {
+  position: absolute;
+  left: 50%;
+  //top: 47vh;
+  color: black;
+  font-size: 5vh;
+}
+
+.flip {
+  position: absolute;
+  transform: rotate(180deg);
+  transform-origin: 0 0;
+}
+
+.name-letter {
+  position: absolute;
+  //transform-origin: 0 calc(#{$big-circle-height});
+  height: calc(#{$big-circle-height});
+  top: -25vh;
+}
+
+svg {
+  display: block;
+  margin: 0 auto;
+}
+
+circle {
+  fill: red;
+}
+
+text {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-anchor: middle;
+}

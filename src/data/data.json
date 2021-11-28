@@ -1,0 +1,98 @@
+[
+    {
+        "order": 0,
+        "name": "zeměloď",
+        "url": "zemelod",
+        "images": [
+            {
+                "path": "path/to/image1.jpg",
+                "caption": "Caption to image number 1",
+                "desc": "description to image numebr 1",
+                "alt": "Alternative text to image number 1"  ,
+                "url": "url/to/image/number/1"              
+            },
+            {
+                "path": "path/to/image2.jpg",
+                "caption": "Caption to image number 2",
+                "desc": "description to image numebr 2",
+                "alt": "Alternative text to image number 2"  ,
+                "url": "url/to/image/number/2"              
+            }
+        ]
+    },
+    {
+        "order": 1,
+        "name": "Dílna slamák",
+        "url": "dilna-slamak",
+        "images": [
+            {
+                "path": "path/to/image1.jpg",
+                "caption": "Caption to image number 1",
+                "desc": "description to image numebr 1",
+                "alt": "Alternative text to image number 1"  ,
+                "url": "url/to/image/number/1"              
+            },
+            {
+                "path": "path/to/image2.jpg",
+                "caption": "Caption to image number 2",
+                "desc": "description to image numebr 2",
+                "alt": "Alternative text to image number 2"  ,
+                "url": "url/to/image/number/2"              
+            },
+            {
+                "path": "path/to/image3.jpg",
+                "caption": "Caption to image number 3",
+                "desc": "description to image numebr 3",
+                "alt": "Alternative text to image number 3"  ,
+                "url": "url/to/image/number/3"              
+            },
+            {
+                "path": "path/to/image4.jpg",
+                "caption": "Caption to image number 4",
+                "desc": "description to image numebr 4",
+                "alt": "Alternative text to image number 4"  ,
+                "url": "url/to/image/number/4"              
+            }
+        ]
+    },{
+        "order": 2,
+        "name": "Projekty",
+        "url": "projekty",
+        "images": [
+            {
+                "path": "path/to/image1.jpg",
+                "caption": "Caption to image number 1",
+                "desc": "description to image numebr 1",
+                "alt": "Alternative text to image number 1"  ,
+                "url": "url/to/image/number/1"              
+            },
+            {
+                "path": "path/to/image2.jpg",
+                "caption": "Caption to image number 2",
+                "desc": "description to image numebr 2",
+                "alt": "Alternative text to image number 2"  ,
+                "url": "url/to/image/number/2"              
+            }
+        ]
+    },{
+        "order": 3,
+        "name": "Kontakt",
+        "url": "kontakt",
+        "images": [
+            {
+                "path": "path/to/image1.jpg",
+                "caption": "Caption to image number 1",
+                "desc": "description to image numebr 1",
+                "alt": "Alternative text to image number 1"  ,
+                "url": ""              
+            },
+            {
+                "path": "path/to/image2.jpg",
+                "caption": "Caption to image number 2",
+                "desc": "description to image numebr 2",
+                "alt": "Alternative text to image number 2"  ,
+                "url": ""              
+            }
+        ]
+    }
+]

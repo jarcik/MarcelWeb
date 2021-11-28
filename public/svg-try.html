@@ -1,0 +1,136 @@
+<html>
+    <head>
+        <script src="https://d3js.org/d3.v3.min.js" charset='utf-8'></script>
+        <style>
+            body {
+                margin:0;
+                padding: 0;
+            }
+            svg {
+        display: block;
+        margin: 0 auto;
+      }
+
+      circle {
+        fill: red;
+      }
+
+      text {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 1.5em;
+        font-weight: bold;
+        text-anchor: middle;
+      }
+        </style>
+    </head>
+    <body>
+        <!-- <svg height="100%" width="100%">
+            <circle cx="50%" cy="50%" r="45%" stroke="black" stroke-width="3" fill="red" />
+            <circle cx="50%" cy="4%" r="3%" stroke="black" stroke-width="1" fill="blue" />
+            <text x="30%" y="70%" class="myName">
+                <textPath xlink:href="#namePath">
+                    Marcel Malypetr
+                </textPath>
+            </text>
+        </svg> -->
+        <!-- <script type="text/javascript">
+            //size properties
+            var width = window.innerWidth;
+            var height = window.innerHeight;
+            var radius = Math.min(width, height) * 0.95;
+
+            //main SVG element as a circle
+            var svg = document.createElement("svg");
+            svg.setAttribute("width", width);
+            svg.setAttribute("height", height);
+            svg.setAttribute("id", "mainSvg");
+            
+            document.querySelector('body').append(svg);
+
+            //get the width of the SVG
+            //width = document.getElementById('mainCircle').getBoundingClientRect().width;
+
+            //path data generation depends on width and radius we've chosen
+            function getPathData() {
+              //adjust the radius a little so our text's baseline isn't sitting directly on the circle
+              var r = radius * 0.95;
+              var startX = width/2 - r;
+              return 'm' + startX + ',' + (height/2) + ' ' +
+                'a' + r + ',' + r + ' 0 0 0 ' + (2*r) + ',0';
+            }
+
+            //add our path definition for the curved textPath to follow
+            var defs = document.createElement("defs");
+            var path = document.createElement("path");
+            path.setAttribute("d", getPathData());
+            path.setAttribute("id", "namePath");
+
+            defs.append(path);
+            svg.append(defs);
+
+            //add our circle element centered within the svg
+            var circle = document.createElement("circle");
+            circle.setAttribute("cx", width/2);
+            circle.setAttribute("cy", height/2);
+            circle.setAttribute("r", radius);
+            circle.setAttribute("id", "mainCircle");
+            circle.setAttribute("stroke", "black");
+            circle.setAttribute("stroke-widht", 3);
+            circle.setAttribute("fill", "red");
+
+            svg.append(circle);
+
+            //add our text with embedded textPath and link the latter to the defined #curvedTextPath
+            var text = document.createElement("text");
+            var textPath = document.createElement("textPath");
+
+            textPath.setAttribute("startOffset", "50%");
+            textPath.setAttribute("xlink:href", "#namePath");
+            textPath.innerText = "Marcel Malypetr";
+
+            text.append(textPath);
+            svg.append(text);
+          </script> -->
+          <script type="text/javascript">
+            var width = document.body.clientWidth, height = document.body.clientHeight, radius = Math.min(width, height) / 2 * 0.95;
+            // insert the main SVG element
+            var svg = d3.select('body').append('svg')
+              .attr({
+                height: height,
+                width: width,
+                id: 'mainSVG'
+              });
+            // path data generation depends on width and radius we've chosen
+            function getPathData() {
+              // adjust the radius a little so our text's baseline isn't sitting directly on the circle
+              var r = radius * 0.95;
+              var startX = width/2 - r;
+              return 'm' + startX + ',' + (height/2) + ' ' +
+                'a' + r + ',' + r + ' 0 0 0 ' + (2*r) + ',0';
+            }
+            // add our path definition for the curved textPath to follow
+            svg.append('defs')
+              .append('path')
+              .attr({
+                d: getPathData,
+                id: 'curvedTextPath'
+              });
+            // add our circle element centered within the svg
+            svg.append('circle')
+              .attr({
+                cx: width/2,
+                cy: height/2,
+                r: radius,
+                id: 'mainCircle'
+              });
+            // add our text with embedded textPath and link the latter to the defined #curvedTextPath
+            svg.append('text')
+              .append('textPath')
+              .attr({
+                startOffset: '50%',
+                'xlink:href': '#curvedTextPath'
+              })
+              .text('Marcel Malypetr');
+          </script>
+    </body>
+</html>
