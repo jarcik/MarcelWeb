@@ -50,6 +50,8 @@ $small-circle-left: calc(50% - (#{$small-circle-height} / 2));
 svg {
   display: block;
   margin: 0 auto;
+  position: absolute;
+  top: 0;
 }
 
 circle {

@@ -90,10 +90,10 @@ class Main extends Component {
     }
 
     getPathData() {
-        let r = this.state.radius * 0.95;
+        let r = this.state.radius / 2 * 1.14;
         let element = this.bigCircle.current;
         if(!element) return;
-        let startX = element.offsetWidth / 2 - r;
+        let startX = element.offsetWidth / 2 - r; 
         return `m${startX},${element.offsetHeight/2} a${r},${r} 0 0 0 ${2*r},0`;
     }
       
@@ -105,7 +105,7 @@ class Main extends Component {
                     {data.map((block) => <MenuBlock key={block.order} block={block} />)}
                 </div>  
                 {/* <div id="Name" ref={this.circularName}>{this.circularText("rtepylaM lecraM")}</div> */}
-                <svg>
+                <svg width="90vh" height="100vh">
                     <defs>
                         <path id="curvedTextPath" d={this.getPathData()}></path>
                     </defs>
