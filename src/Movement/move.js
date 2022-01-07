@@ -15,6 +15,23 @@ export class MoveMe {
     start(id, settings) {
         var el = document.getElementById(id),
             startTime = (new Date()).getTime();
+        if(!el) this.stop(id);
+        el.style.position = 'absolute';
+        if(!settings.startPositionRad) settings.startPositionRad = settings.startPositionDeg / 180 * Math.PI;
+        var t = this;
+        setInterval(function() {
+            var pos = t.getPosition(settings, (new Date()).getTime() - startTime);
+            el.style.left = (pos.x) + 'px';
+            el.style.top = (pos.y) + 'px';
+        }, settings.updateInterval);
+        if(settings.iterations > -1) setTimeout(function() {
+            t.stop(id);
+        }, settings.iterations * settings.interval);
+    }
+    
+    startOld(id, settings) {
+        var el = document.getElementById(id),
+            startTime = (new Date()).getTime();
         if(el['#rev:tm'] !== null) this.stop(id);
         el.style.position = 'absolute';
         if(!settings.startPositionRad) settings.startPositionRad = settings.startPositionDeg / 180 * Math.PI;
