@@ -1,0 +1,42 @@
+<html lang="cs">
+  <head>
+    <meta charset="utf-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Marcel Malypetr Portfolio">
+    <link rel="manifest" href="/manifest.json">
+    <title>Portfolio | Marcel Malypetr</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+        <svg width="100%" height="100%">                
+            <g>
+                <circle id="BigCircleSvg" cy="90vh" cx="50%" r="90vh" stroke="black" strokeWidth="1" fill="blur" ref={this.bigCircleSvg} />
+                <circle id="SmallCircleSvg" cy="5vh" cx="50%" r="2.5vh" stroke="black" strokeWidth="1" fill="red" ref={this.smallCircle} onClick={(e) => {this.spin(e)}} />
+                {/* <animateTransform 
+                    attributeName="transform" 
+                    type="rotate"
+                    values={path} 
+                    dur="12s"
+                    repeatCount="indefinite"
+                /> */}
+                {/* <animateMotion dur="10s" repeatCount="1"
+                    path="M -295.5,295.5 a 295.5,295.5 0 1,0 591,0 a 295.5,295.5 0 1,0 -591,0" /> */}
+                <animateMotion dur="10s" repeatCount="1"
+                    path={circularPath} />
+                    {/* a rx ry x-axis-rotation large-arc-flag sweep-flag dx dy */}
+            </g>
+            <defs>
+                <path id="curvedTextPath" d={pathText}></path>
+            </defs>
+            <text>
+                <textPath startOffset="50%" href="#curvedTextPath">Marcel Malypetr</textPath>
+            </text>
+        </svg>
+    </div>
+  </body>
+</html>

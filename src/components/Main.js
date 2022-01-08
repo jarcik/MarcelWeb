@@ -29,7 +29,7 @@ class Main extends Component {
     componentDidMount() {
         //set radius of the big circle to the state
         this.setState({
-            radius: this.bigCircle.current.offsetWidth
+            radius: this.bigCircle.current.offsetWidth / 2
         });
 
         //center point for rotation of the small circle
@@ -90,15 +90,15 @@ class Main extends Component {
     }
 
     getTextPathData() {
-        let r = this.state.radius / 2 * 1.14;
+        let r = this.state.radius * 1.14;
         let element = this.bigCircle.current;
         if(!element) return;
-        let startX = element.offsetWidth / 2 - r; 
+        let startX = element.offsetWidth-r*1.6; 
         return `m${startX},${element.offsetHeight/2} a${r},${r} 0 0 0 ${2*r},0`;
     }
 
     getCircularPathData() {
-        let r = this.state.radius / 2;
+        let r = this.state.radius;
         let element = this.bigCircle.current;
         if(!element) return;
         let cx = element.offsetWidth / 2 - r; 
@@ -149,21 +149,28 @@ class Main extends Component {
     
         return d;       
     }
+
+    spinSmallCircle() {
+        var elements = document.getElementsByTagName("animateMotion");
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].beginElement();
+        }
+    }
       
 
     render() {
         let pathText = this.getTextPathData();
-        let r = this.state.radius / 2;
+        let r = this.state.radius;
         let element = this.bigCircle.current;
         let circularPath = "";
         if(element) {
             let cx = element.offsetWidth / 2 - r; 
             let cy = element.offsetHeight / 2; 
-            circularPath = this.describeArc(cx, cy, this.state.radius/2, 0, 359);
+            circularPath = this.describeArc(cx, cy, this.state.radius, 0, 359);
         }
         
         return (
-            <div>
+            <div className="Main">
                 <div id="BigCircle" ref={this.bigCircle}>                
                     {/* <div id="SmallCircle" ref={this.smallCircle} onClick={(e) => {this.spin(e)}}></div>   */}
                     {data.map((block) => <MenuBlock key={block.order} block={block} />)}
@@ -171,7 +178,7 @@ class Main extends Component {
                 {/* <div id="Name" ref={this.circularName}>{this.circularText("rtepylaM lecraM")}</div> */}
                 <svg width="120vh" height="100vh">                
                     <g>
-                        <circle id="SmallCircleSvg" cy="5vh" cx="50%" r="2.5vh" stroke="black" strokeWidth="1" fill="red" ref={this.smallCircle} onClick={(e) => {this.spin(e)}} />
+                        <circle id="SmallCircleSvg" cy="5vh" cx="50%" r="2.5vh" stroke="black" strokeWidth="1" fill="red" ref={this.smallCircle} onClick={(e) => {this.spinSmallCircle(e)}} />
                         {/* <animateTransform 
                             attributeName="transform" 
                             type="rotate"
@@ -181,9 +188,8 @@ class Main extends Component {
                         /> */}
                         {/* <animateMotion dur="10s" repeatCount="1"
                             path="M -295.5,295.5 a 295.5,295.5 0 1,0 591,0 a 295.5,295.5 0 1,0 -591,0" /> */}
-                        <animateMotion dur="10s" repeatCount="1"
+                        <animateMotion attributeName="x" begin="indefinite" dur="4s" repeatCount="1"
                             path={circularPath} />
-                            {/* a rx ry x-axis-rotation large-arc-flag sweep-flag dx dy */}
                     </g>
                     <defs>
                         <path id="curvedTextPath" d={pathText}></path>
