@@ -16,42 +16,6 @@ $small-circle-left: calc(50% - (#{$small-circle-height} / 2));
   border-radius: 50%;
 }
 
-#SmallCircleSvg {
-  left: $small-circle-left;
-  top: $small-circle-top;
-}
-
-#SmallCircle {
-  position: absolute;
-  height: $small-circle-height;
-  width: $small-circle-height;
-  background-color: $circle-small-color;
-  border-radius: 50%;
-  left: $small-circle-left;
-  top: $small-circle-top;
-}
-
-#Name {
-  position: absolute;
-  left: 50%;
-  //top: 47vh;
-  color: black;
-  font-size: 5vh;
-}
-
-.flip {
-  position: absolute;
-  transform: rotate(180deg);
-  transform-origin: 0 0;
-}
-
-.name-letter {
-  position: absolute;
-  //transform-origin: 0 calc(#{$big-circle-height});
-  height: calc(#{$big-circle-height});
-  top: -25vh;
-}
-
 svg {
   display: block;
   margin: 0 auto;
@@ -79,4 +43,12 @@ text {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+path {
+  fill: none;
+}
+
+.menuItem {
+  font-size: 1em;
 }
