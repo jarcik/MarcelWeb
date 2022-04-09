@@ -115,27 +115,31 @@ class Main extends Component {
     //get coordinates for the line undex the text
     //use in text coordinates too
     getTextLineCoords(quadrant) {
+        
+        if(!this.bigCircle.current) return;
+        let widthBigCircle = this.bigCircle.current.offsetWidth;
+
         //turned line and its vector
-        let xcross = 40;
-        let ycross = 20;
+        let xcross = widthBigCircle*0.04;
+        let ycross = widthBigCircle*0.04;
         //length of the line
-        let xline = 200;
+        let xline = widthBigCircle*0.3;
         //it is straight line so y move is 0
         let yline = 0;
 
         //base on the quadrant change the vector
         switch(quadrant) {
             case 0:
-                ycross = -20;
+                ycross = -ycross;
                 break;
             case 2:
-                xcross = -40;
-                xline = -200;
+                xcross = -xcross;
+                xline = -xline;
                 break;
             case 3:
-                xcross = -40;
-                ycross = -20;
-                xline = -200;
+                xcross = -xcross;
+                ycross = -ycross;
+                xline = -xline;
                 break;
             default:
                 break;
@@ -196,11 +200,17 @@ class Main extends Component {
         };
     }
 
-    getMenuPath(end, crossLine, quadrant) {
+    getMenuPath(end, crossLine, quadrant) {        
+        if(!this.bigCircle.current) return;
+        let widthBigCircle = this.bigCircle.current.offsetWidth;
+
+        //move the text above the line - space between text and line
+        let yMoveUpLine = -widthBigCircle*0.01;
+
         switch(quadrant) {
             case 0:
             case 1:
-                return { x: end.x + crossLine.xcross, y: end.y + crossLine.ycross };
+                return { x: end.x + crossLine.xcross, y: yMoveUpLine + end.y + crossLine.ycross };
             case 2:
             case 3:
                 let endPoint = { x: end.x - crossLine.xcross, y: end.y - crossLine.ycross };
