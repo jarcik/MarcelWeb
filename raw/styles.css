@@ -1,0 +1,29 @@
+@import 'reset.css';
+
+/*
+
+big-circle-height: 90vh
+small-circle-height: 5vh
+small-circle-top: calc(-#{$small-circle-height / 2});
+small-circle-left: calc(50% - (#{$small-circle-height} / 2));
+
+*/
+
+#Main {
+    width: 100%;
+    background-color: antiquewhite;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#BigCircle {
+    position: relative;
+    height: 90vh;
+    width: 90vh;
+    border-radius: 50%;
+    background-color: black;
+}

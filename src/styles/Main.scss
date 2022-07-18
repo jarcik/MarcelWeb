@@ -8,13 +8,13 @@ $small-circle-height: 5vh;
 $small-circle-top: calc(-#{$small-circle-height / 2});
 $small-circle-left: calc(50% - (#{$small-circle-height} / 2));
 
-#BigCircle {
-  position: relative;
-  height: $big-circle-height;
-  width: $big-circle-height;
-  background-color: $circle-color;
-  border-radius: 50%;
-}
+// #BigCircle {
+//   position: relative;
+//   height: $big-circle-height;
+//   width: $big-circle-height;
+//   background-color: $circle-color;
+//   border-radius: 50%;
+// }
 
 svg {
   display: block;
@@ -29,7 +29,6 @@ circle {
 
 text {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 1.5em;
   font-weight: bold;
   text-anchor: middle;
 }
@@ -41,7 +40,7 @@ text {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  //font-size: calc(10px + 2vmin);
   color: white;
 }
 
@@ -50,5 +49,18 @@ path {
 }
 
 .menuItem {
-  font-size: 1em;
+  //font-size: 4vh;
+  cursor: pointer;
+}
+
+.menuItem:hover {
+  //font-size: 5vh;
+}
+
+#curvedText {
+  //font-size: 7vh;
+}
+
+.hidden {
+  display: none;
 }
